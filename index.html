@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rhythmic Grace - Personal Gymnastics Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --plum: #24142f;
+      --plum-soft: #3a2349;
+      --cream: #fff8ea;
+      --mist: #f7efe8;
+      --gold: #f6d28a;
+      --coral: #ff5a76;
+      --mint: #93e2c7;
+      --ink: #2a1730;
+      --line: rgba(42, 23, 48, 0.12);
+      --shadow: 0 24px 80px rgba(36, 20, 47, 0.18);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--mist);
+      font-family: "IBM Plex Sans", Arial, sans-serif;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 86% 4%, rgba(246, 210, 138, 0.45), rgba(246, 210, 138, 0) 28%),
+        radial-gradient(circle at 12% 24%, rgba(147, 226, 199, 0.28), rgba(147, 226, 199, 0) 26%),
+        var(--mist);
+      overflow: hidden;
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--plum);
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: conic-gradient(from 90deg, var(--coral), var(--gold), var(--mint), var(--coral));
+      box-shadow: 0 10px 30px rgba(255, 90, 118, 0.24);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 15px;
+      color: rgba(42, 23, 48, 0.74);
+    }
+
+    .hero {
+      position: relative;
+      width: min(1180px, calc(100% - 36px));
+      min-height: calc(100vh - 86px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.78fr);
+      gap: 34px;
+      align-items: center;
+      padding: 34px 0 54px;
+    }
+
+    .ribbon-line {
+      position: absolute;
+      inset: auto -12% 5% -10%;
+      height: 260px;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .ribbon-line path {
+      fill: none;
+      stroke: var(--coral);
+      stroke-width: 15;
+      stroke-linecap: round;
+      filter: drop-shadow(0 14px 24px rgba(255, 90, 118, 0.22));
+    }
+
+    .event-panel,
+    .profile-panel,
+    .event-card {
+      position: relative;
+      border: 1px solid rgba(255, 248, 234, 0.28);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .event-panel {
+      min-height: 680px;
+      color: var(--cream);
+      background: var(--plum);
+    }
+
+    .event-photo {
+      height: 360px;
+      background-image:
+        linear-gradient(180deg, rgba(36, 20, 47, 0.02), rgba(36, 20, 47, 0.92)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Spare%20rhythmic%20gymnastics%20equipment.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .event-copy {
+      padding: 38px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--mint);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 680px;
+      font-size: clamp(56px, 7.6vw, 108px);
+      color: var(--cream);
+    }
+
+    h2 {
+      font-size: clamp(38px, 4.2vw, 66px);
+      color: var(--plum);
+    }
+
+    h3 {
+      font-size: 30px;
+    }
+
+    .profile-copy h2,
+    .event-card:nth-child(2) h3 {
+      font-style: italic;
+    }
+
+    .lead {
+      max-width: 610px;
+      margin: 0;
+      font-size: clamp(20px, 2.1vw, 30px);
+      line-height: 1.35;
+      font-weight: 300;
+      color: rgba(255, 248, 234, 0.86);
+    }
+
+    .event-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .meta-item {
+      min-height: 88px;
+      padding: 16px;
+      border-radius: 8px;
+      background: rgba(255, 248, 234, 0.08);
+      border: 1px solid rgba(255, 248, 234, 0.14);
+    }
+
+    .meta-item strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--gold);
+      font-size: 22px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .profile-panel {
+      align-self: stretch;
+      min-height: 680px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--plum);
+      background: rgba(255, 248, 234, 0.78);
+      backdrop-filter: blur(18px);
+    }
+
+    .profile-photo {
+      position: relative;
+      width: min(100%, 390px);
+      aspect-ratio: 4 / 5;
+      margin-left: auto;
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(255, 90, 118, 0.12), rgba(147, 226, 199, 0.18)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Rhythmic%20gymnastics%20pictogram.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 46%, cover;
+      border: 1px solid rgba(36, 20, 47, 0.11);
+    }
+
+    .profile-photo::after {
+      content: "Profile picture";
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(36, 20, 47, 0.82);
+      color: var(--cream);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .profile-copy {
+      padding-top: 30px;
+    }
+
+    .profile-copy p {
+      max-width: 420px;
+      margin: 18px 0 0;
+      color: rgba(42, 23, 48, 0.72);
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .skill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+      font-size: 17px;
+    }
+
+    .skill span {
+      color: var(--coral);
+      font-weight: 700;
+    }
+
+    .competition-media {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 22px 0 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.86fr) minmax(360px, 1fr);
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .media-copy {
+      padding: 36px;
+      border-radius: 8px;
+      background: var(--cream);
+      box-shadow: 0 18px 58px rgba(36, 20, 47, 0.09);
+    }
+
+    .media-copy p {
+      margin: 18px 0 0;
+      color: rgba(42, 23, 48, 0.72);
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .video-frame {
+      position: relative;
+      min-height: 420px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--plum);
+      box-shadow: var(--shadow);
+    }
+
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    .video-caption {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      max-width: 420px;
+      padding: 16px 18px;
+      border-radius: 8px;
+      background: rgba(36, 20, 47, 0.78);
+      color: var(--cream);
+      backdrop-filter: blur(12px);
+    }
+
+    .events {
+      background: var(--plum);
+      color: var(--cream);
+      padding: 72px 0 86px;
+    }
+
+    .events-inner {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .events-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .events-header h2 {
+      color: var(--cream);
+    }
+
+    .events-header p {
+      max-width: 430px;
+      margin: 0;
+      color: rgba(255, 248, 234, 0.72);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .event-card {
+      min-height: 340px;
+      background: rgba(255, 248, 234, 0.08);
+    }
+
+    .event-card-image {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .event-card:nth-child(1) .event-card-image {
+      background-image:
+        linear-gradient(180deg, rgba(36, 20, 47, 0), rgba(36, 20, 47, 0.4)),
+        url("https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .event-card:nth-child(2) .event-card-image {
+      background-image:
+        linear-gradient(180deg, rgba(36, 20, 47, 0), rgba(36, 20, 47, 0.4)),
+        url("https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .event-card:nth-child(3) .event-card-image {
+      background-image:
+        linear-gradient(180deg, rgba(36, 20, 47, 0), rgba(36, 20, 47, 0.4)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Spare%20rhythmic%20gymnastics%20equipment.jpg");
+    }
+
+    .event-card-copy {
+      padding: 24px;
+    }
+
+    .event-card-copy p {
+      margin: 12px 0 0;
+      color: rgba(255, 248, 234, 0.72);
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .footer {
+      padding: 28px 18px;
+      text-align: center;
+      color: rgba(42, 23, 48, 0.64);
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero,
+      .competition-media,
+      .event-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .event-panel,
+      .profile-panel {
+        min-height: auto;
+      }
+
+      .profile-photo {
+        margin: 0;
+      }
+
+      .events-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .event-copy,
+      .profile-panel,
+      .media-copy {
+        padding: 24px;
+      }
+
+      .event-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .video-frame,
+      .video-frame video {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="site-shell">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Rhythmic Grace</span>
+      </a>
+      <div class="nav-links">
+        <a href="#competition">Competition</a>
+        <a href="#profile">Profile</a>
+        <a href="#events">Events</a>
+      </div>
+    </nav>
+
+    <section class="hero" id="profile">
+      <svg class="ribbon-line" viewBox="0 0 1400 260" aria-hidden="true">
+        <path d="M -60 170 C 170 20 370 248 590 128 S 910 10 1090 118 S 1240 232 1480 74"></path>
+      </svg>
+
+      <article class="event-panel" id="competition">
+        <div class="event-photo" role="img" aria-label="Rhythmic gymnastics equipment"></div>
+        <div class="event-copy">
+          <p class="eyebrow">Competition event</p>
+          <h1>Grace in motion</h1>
+          <p class="lead">A personal rhythmic gymnastics showcase built around balance, rhythm, confidence, and a graceful routine.</p>
+          <div class="event-meta" aria-label="Competition details">
+            <div class="meta-item">
+              <strong>1-2-3-4</strong>
+              Rhythm count
+            </div>
+            <div class="meta-item">
+              <strong>3</strong>
+              Apparatus choices
+            </div>
+            <div class="meta-item">
+              <strong>4</strong>
+              Practice skills
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="profile-panel">
+        <div class="profile-photo" aria-label="Personal profile picture placeholder"></div>
+        <div class="profile-copy">
+          <p class="eyebrow">Personal profile</p>
+          <h2>My rhythmic gymnastics journey</h2>
+          <p>Replace this placeholder with a profile picture. Keep the photo bright, upright, and simple so the page feels personal and elegant.</p>
+          <div class="skill-list">
+            <div class="skill">Light steps <span>soft</span></div>
+            <div class="skill">Controlled turns <span>steady</span></div>
+            <div class="skill">Expressive arms <span>musical</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="competition-media" aria-label="Competition picture and video">
+      <div class="media-copy">
+        <p class="eyebrow">Picture + video</p>
+        <h2>Competition focus</h2>
+        <p>The left side of the page introduces the event with a strong image. This section adds movement through video, so visitors can immediately feel the rhythm, flow, and performance quality.</p>
+      </div>
+      <div class="video-frame">
+        <video
+          src="https://upload.wikimedia.org/wikipedia/commons/transcoded/4/48/Alina_Kabaeva_2001_Aeon_Cup.ogv/Alina_Kabaeva_2001_Aeon_Cup.ogv.480p.vp9.webm"
+          autoplay
+          muted
+          loop
+          playsinline
+          controls>
+        </video>
+        <div class="video-caption">Competition inspiration: precise rhythm, clean lines, and expressive apparatus work.</div>
+      </div>
+    </section>
+
+    <section class="events" id="events">
+      <div class="events-inner">
+        <div class="events-header">
+          <div>
+            <p class="eyebrow">Xmas and dance moments</p>
+            <h2>Other events</h2>
+          </div>
+          <p>Keep this section for seasonal performances, class dances, and memories outside the main competition routine.</p>
+        </div>
+        <div class="event-grid">
+          <article class="event-card">
+            <div class="event-card-image" role="img" aria-label="Christmas event lights"></div>
+            <div class="event-card-copy">
+              <h3>Xmas performance</h3>
+              <p>A warm holiday routine with ribbon movement, soft music, and a festive final pose.</p>
+            </div>
+          </article>
+          <article class="event-card">
+            <div class="event-card-image" role="img" aria-label="Dance event stage"></div>
+            <div class="event-card-copy">
+              <h3>Dance event</h3>
+              <p>A simple dance moment focused on expression, timing, and graceful transitions.</p>
+            </div>
+          </article>
+          <article class="event-card">
+            <div class="event-card-image" role="img" aria-label="Practice apparatus"></div>
+            <div class="event-card-copy">
+              <h3>Practice day</h3>
+              <p>Photos and notes from training: steps, turns, jumps, and arms moving with music.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">Rhythmic Grace - personal gymnastics profile</footer>
+</body>
+</html>
